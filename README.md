@@ -47,5 +47,5 @@ Designed with a **Secure Software Development Lifecycle (SSDLC)** mindset for re
 
 1. **Clone the repository:**
    ```bash
-  git clone https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git
-cd edutrack-analytics-hub
+   git clone [https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git](https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git)
+   cd edutrack-analytics-hub
