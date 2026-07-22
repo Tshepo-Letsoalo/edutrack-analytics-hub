@@ -65,3 +65,9 @@ Designed with a **Secure Software Development Lifecycle (SSDLC)** mindset for re
    ```bash
    git clone [https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git](https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git)
    cd edutrack-analytics-hub
+
+
+---
+
+### 👨‍💻 Developer Credit
+Developed by **Tshepo Letsoalo** — Geekulcha Annual Hackathon 2026
