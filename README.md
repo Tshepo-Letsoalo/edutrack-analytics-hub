@@ -15,15 +15,15 @@ A centralized, secure multi-student web application designed to manage, format, 
 
 ### 📊 Unified Academic Dashboard
 ![Dashboard Preview](Screenshots/dashboard-preview.png)
-* **Narrative:** The core operational hub displaying real-time academic metrics, active learner profile details, dynamic GPA calculations, and structured module performance records at a glance.
+* **Context:** The core operational hub displaying real-time academic metrics, active learner profile details, dynamic GPA calculations, and structured module performance records at a glance.
 
 ### 🔍 Multi-Student Search & Switcher
 ![Student Switcher](Screenshots/student-switcher.png)
-* **Narrative:** Demonstrates the system's scalability beyond a single-student tracker. Evaluators and administrators can instantly search by Student ID or use the dropdown switcher to manage multiple student records dynamically.
+* **Context:** Demonstrates the system's scalability beyond a single-student tracker. Evaluators and administrators can instantly search by Student ID or use the dropdown switcher to manage multiple student records dynamically.
 
 ### 📋 Module Performance & Status Tracking
 ![Module Performance](Screenshots/module-performance.png)
-* **Narrative:** Shows detailed transcript rows featuring module codes, names, earned credits, scores, letter grades, and automated color-coded status badges (`PASSED`) alongside interactive CRUD management tools.
+* **Context:** Shows detailed transcript rows featuring module codes, names, earned credits, scores, letter grades, and automated color-coded status badges (`PASSED`) alongside interactive CRUD management tools.
 
 ---
 
