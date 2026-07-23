@@ -69,5 +69,4 @@ Designed with a **Secure Software Development Lifecycle (SSDLC)** mindset for re
 
 ---
 
-### 👨‍💻 Developer Credit
-Developed by **Tshepo Letsoalo** — Geekulcha Annual Hackathon 2026
+
