@@ -37,14 +37,14 @@ A centralized, secure, multi-student web application designed to maintain record
 
 ### Multi-Language Internationalization (i18n) Dictionary
 The application implements an extensive localization dictionary mapping core institutional terms across South African linguistic demographics:
-* **Nguni Group:** isiZulu (*Lezi/Izinhlelo*), isiXhosa, isiNdebele, siSwati.
+* **Nguni Group:** isiZulu, isiXhosa, isiNdebele, siSwati.
 * **Sotho-Tswana Group:** Sepedi, Sesotho, Setswana.
 * **Tswa-Ronga & Venda Groups:** Xitsonga, Tshivenda.
 * **Other Official & Inclusive Formats:** Afrikaans, English, and South African Sign Language (SASL) metadata tags.
 
 ### Academic Rules & Calculation Logic
-* **GPA & Average Computation:** Automatically weighs course credit values against final percentage grades to output accurate semester averages.
-* **Status Enforcement:** Threshold rules automatically evaluate passing criteria (e.g., standard module pass marks versus conditional supplementary cutoffs).
+* **Average & Percentage Computation:** Automatically weighs course credit values against final percentage marks to output accurate semester and cumulative academic averages.
+* **Status Enforcement:** Threshold rules automatically evaluate passing criteria (e.g., standard module pass marks vs. supplementary exam thresholds).
 * **Cryptographic Hashing:** Transcripts generated via the engine incorporate unique verification hashes (SHA-backed identification tags) to prevent credential tampering.
 
 ---
@@ -52,8 +52,8 @@ The application implements an extensive localization dictionary mapping core ins
 ## 🚀 Core Features
 
 * **Multi-Student Management:** Easily manage multiple learner profiles, search records instantly by Student ID, and seamlessly switch between student accounts.
-* **Automated Grade Calculations:** Real-time GPA, letter grades, and modular score tracking to eliminate manual calculation errors.
-* **Streamlined Report Generation:** Generate and download a number of verified academic transcripts and progress transcripts.
+* **Automated Grade Calculations:** Real-time percentage marks, modular scores, and weighted average tracking to eliminate manual calculation errors.
+* **Streamlined Report Generation:** Generate and download a number of verified academic transcripts and progress reports.
 * **Low-Bandwidth Optimized:** Lightweight stateless backend for accessibility, speed, and low-resource server hardware.
 
 ---
