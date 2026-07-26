@@ -1,59 +1,64 @@
 # EduTrack Analytics Hub 🎓
 
-> **Geekulcha Annual Hackathon 2026** | *Challenge: Education Self-sufficiency (Localised Self-Learning Experiences)*
+> **Centres for Academic Excellence 2026 | Challenge 3: Seamless Multi-Currency & Multi-Language Higher Education Portal**
 
-[![Status](https://img.shields.io/badge/Status-Active%20%2F%20Good%20Standing-0284c7?style=flat-square)]()
-[![Python](https://img.shields.io/badge/Python-3.14-38bdf8?style=flat-square)](https://www.python.org/)
-[![Framework](https://img.shields.io/badge/Framework-Flask-2563eb?style=flat-square)](https://flask.palletsprojects.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-16a34a?style=flat-square)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-Web%20Framework-green.svg)](https://flask.palletsprojects.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status: Production Ready](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
-A centralized, secure multi-student web application designed to manage, format, and visualize student academic performance metrics, dynamic GPA tracking, and automated grade validations in real time. Built with an emphasis on low-bandwidth efficiency, robust security, and a seamless user experience (UX) to satisfy the **"BUILD FOR USE"** mandate.
-
----
-
-## 📸 Visual Workflow & Features
-
-### 📊 Unified Academic Dashboard
-![Dashboard Preview](Screenshots/dashboard-preview.png)
-* **Context:** The core operational hub displaying real-time academic metrics, active learner profile details, dynamic GPA calculations, and structured module performance records at a glance.
-
-### 🔍 Multi-Student Search & Switcher
-![Student Switcher](Screenshots/student-switcher.png)
-* **Context:** Demonstrates the system's scalability beyond a single-student tracker. Evaluators and administrators can instantly search by Student ID or use the dropdown switcher to manage multiple student records dynamically.
-
-### 📋 Module Performance & Status Tracking
-![Module Performance](Screenshots/module-performance.png)
-* **Context:** Shows detailed transcript rows featuring module codes, names, earned credits, scores, letter grades, and automated color-coded status badges (`PASSED`) alongside interactive CRUD management tools.
+A centralized, secure, multi-student web application designed to maintain records, automate academic grade tracking, monitor dynamic data metrics, and provide localized interactions across higher education institutions. Built with a focus on security-by-design principles, robust routing, and localized multi-language UI support for South African communities.
 
 ---
 
-## 🌟 Core Features
+## 🌍 Visual Workflow & Features
 
-* **Multi-Student Management:** Register multiple learner profiles, search records instantly by Student ID, and seamlessly switch between student accounts.
-* **Automated Grade Calculations:** Real-time GPA, letter grading, and modular score tracking to eliminate manual calculation errors.
-* **Structured Report Generation:** Instant generation of verified summary cards and progress transcripts.
-* **Low-Bandwidth Optimized:** Lightweight interface tailored for accessibility across regional networks and local hardware.
+### 1. Header, Live Clock & Multi-Language Selector
+* Features a real-time live clock, date tracker, theme toggling, and an inclusive multi-language selector supporting all 11 official South African languages plus SASL.
+
+![Header Topbar](edutrack-header-topbar.png)
+*(Expanded view showcasing the localized language options)*
+![Language Dropdown](edutrack-language-dropdown.png)
+
+### 2. Unified Academic Dashboard
+* Centralizes core operational tabs, displaying student metrics, active performance data, dynamic calculations, and structured module performance records in real time.
+
+![Full Dashboard](edutrack-full-dashboard.png)
+
+### 3. Localized Transcript Export
+* Generates clean, secure-hashed official PDF transcripts complete with localized headers and verification tokens.
+
+![PDF Transcript](edutrack-pdf-transcript.png)
 
 ---
 
-## 🛡️ Security & Architecture (SSDLC)
+## 🚀 Core Features
 
-Designed with a **Secure Software Development Lifecycle (SSDLC)** mindset for real-world deployment trust:
-* **Security-by-Design:** Strict input validation and parameterized routes to prevent injection vulnerabilities.
-* **Data Integrity:** Enforced session management and secure routing for data protection.
-* **Modular Codebase:** Clean separation of concerns between application logic (`/app`), automated tests (`/tests`), and runtime dependencies.
+* **Multi-Student Management:** Easily manage multiple learner profiles, search records instantly by Student ID, and seamlessly switch between student accounts.
+* **Automated Grade Calculations:** Real-time GPA, letter grades, and modular score tracking to eliminate manual calculation errors.
+* **Streamlined Report Generation:** Generate and download a number of verified academic transcripts and progress transcripts.
+* **Low-Bandwidth Optimized:** Lightweight stateless backend for accessibility, speed, and low-resource server hardware.
+
+---
+
+## 🔒 Security & Architecture (SSDLC)
+
+Designed with a Security-by-Design Software Development Lifecycle (SSDLC) ideal for academic deployment that:
+* **Proactive Protection:** Implements input validation and sanitized payloads to prevent injection vulnerabilities.
+* **Data Integrity:** Validates session management and secure routing for strict-role profiles.
+* **Modular Control:** Clears a number of concerns between application logic, templating layers, route guards, and persistence models.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Backend:** Python, Flask (Routing, Dynamic Ingestion, Multi-Student State Handling)
-* **Frontend:** HTML5, CSS3, Custom Responsive UI Components
-* **Version Control:** Git & GitHub
+* **Backend / Python:** Flask routing, dynamic ingestion, structured state handling.
+* **Frontend:** HTML5, CSS3, Custom Response UI Components.
+* **Version Control:** Git & GitHub.
 
 ---
 
-## 🚀 Getting Started
+## 🏁 Getting Started
 
 ### Prerequisites
 * Python 3.10+
@@ -65,8 +70,3 @@ Designed with a **Secure Software Development Lifecycle (SSDLC)** mindset for re
    ```bash
    git clone [https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git](https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git)
    cd edutrack-analytics-hub
-
-
----
-
-
