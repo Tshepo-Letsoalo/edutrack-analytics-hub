@@ -33,6 +33,22 @@ A centralized, secure, multi-student web application designed to maintain record
 
 ---
 
+## 📋 Extended System Architecture & Workflow
+
+### Multi-Language Internationalization (i18n) Dictionary
+The application implements an extensive localization dictionary mapping core institutional terms across South African linguistic demographics:
+* **Nguni Group:** isiZulu (*Lezi/Izinhlelo*), isiXhosa, isiNdebele, siSwati.
+* **Sotho-Tswana Group:** Sepedi, Sesotho, Setswana.
+* **Tswa-Ronga & Venda Groups:** Xitsonga, Tshivenda.
+* **Other Official & Inclusive Formats:** Afrikaans, English, and South African Sign Language (SASL) metadata tags.
+
+### Academic Rules & Calculation Logic
+* **GPA & Average Computation:** Automatically weighs course credit values against final percentage grades to output accurate semester averages.
+* **Status Enforcement:** Threshold rules automatically evaluate passing criteria (e.g., standard module pass marks versus conditional supplementary cutoffs).
+* **Cryptographic Hashing:** Transcripts generated via the engine incorporate unique verification hashes (SHA-backed identification tags) to prevent credential tampering.
+
+---
+
 ## 🚀 Core Features
 
 * **Multi-Student Management:** Easily manage multiple learner profiles, search records instantly by Student ID, and seamlessly switch between student accounts.
