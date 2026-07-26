@@ -16,19 +16,19 @@ A centralized, secure, multi-student web application designed to maintain record
 ### 1. Header, Live Clock & Multi-Language Selector
 * Features a real-time live clock, date tracker, theme toggling, and an inclusive multi-language selector supporting all 11 official South African languages plus SASL.
 
-![Header Topbar](Screenshots/edutrack-header-topbar.png)
+![Header Topbar](edutrack-header-topbar.png)
 *(Expanded view showcasing the localized language options)*
-![Language Dropdown](Screenshots/edutrack-language-dropdown.png)
+![Language Dropdown](edutrack-language-dropdown.png)
 
 ### 2. Unified Academic Dashboard
 * Centralizes core operational tabs, displaying student metrics, active performance data, dynamic calculations, and structured module performance records in real time.
 
-![Full Dashboard](Screenshots/edutrack-full-dashboard.png)
+![Full Dashboard](edutrack-full-dashboard.png)
 
 ### 3. Localized Transcript Export
 * Generates clean, secure-hashed official PDF transcripts complete with localized headers and verification tokens.
 
-![PDF Transcript](Screenshots/edutrack-pdf-transcript.png)
+![PDF Transcript](edutrack-pdf-transcript.png)
 
 ---
 
