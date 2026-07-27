@@ -101,7 +101,7 @@ Designed with a Security-by-Design Software Development Lifecycle (SSDLC) ideal 
 ### 💻 Installation & Local Setup
 ```bash
 # Clone the repository
-git clone https://github.com/edutrack-hub/edutrack-analytics-hub
+git clone https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub
 cd edutrack-analytics-hub
 
 # Create and activate a virtual environment
@@ -117,4 +117,5 @@ pip install flask
 # Run the application
 python app.py
 
+Access the Hub:
 After starting the server, open http://127.0.0.1:5000 in your browser.
