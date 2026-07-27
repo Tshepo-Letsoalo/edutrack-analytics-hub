@@ -81,6 +81,17 @@ Designed with a Security-by-Design Software Development Lifecycle (SSDLC) ideal 
 * Python 3.10+
 * Git
 
+
+## 👥 Contributors
+
+| Name | Role |
+|------|------|
+| Tshepo | Lead Developer |
+| Leonard | UI/UX Designer |
+| Muziwenkosi | Data Analyst |
+
+
+
 ### Installation & Local Setup
 
 1. **Clone the repository:**
