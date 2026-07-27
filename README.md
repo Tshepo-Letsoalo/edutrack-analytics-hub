@@ -91,27 +91,30 @@ Designed with a Security-by-Design Software Development Lifecycle (SSDLC) ideal 
 | Muziwenkosi | Data Analyst |
 
 
+---
 
-### Installation & Local Setup
+## ⚙️ Getting Started
 
-1. **Clone the repository:**
-   ```bash
-   git clone : https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub
-   
+### 🧩 Prerequisites
+- Python 3.10+
 
-2. Create and activate a virtual environment
+### 💻 Installation & Local Setup
+```bash
+# Clone the repository
+git clone https://github.com/edutrack-hub/edutrack-analytics-hub
+cd edutrack-analytics-hub
 
+# Create and activate a virtual environment
 python -m venv venv
 # On Windows:
 venv\Scripts\activate
 # On macOS/Linux:
 source venv/bin/activate
 
-3. Install dependencies:
-   pip install flask
+# Install dependencies
+pip install flask
 
-4. Run the application:
-   python app.py
+# Run the application
+python app.py
 
-5. Open in browser:
-Navigate to http://127.0.0.1:5000 to access the hub.
+After starting the server, open http://127.0.0.1:5000 in your browser.
