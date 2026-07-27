@@ -93,10 +93,7 @@ Designed with a Security-by-Design Software Development Lifecycle (SSDLC) ideal 
 
 ---
 
-## ⚙️ Getting Started
 
-### 🧩 Prerequisites
-- Python 3.10+
 
 ### 💻 Installation & Local Setup
 ```bash
