@@ -82,17 +82,7 @@ Designed with a Security-by-Design Software Development Lifecycle (SSDLC) ideal 
 * Git
 
 
-## 👥 Contributors
-
-| Name | Role |
-|------|------|
-| Tshepo | Lead Developer |
-| Leonard | UI/UX Designer |
-| Muziwenkosi | Data Analyst |
-
-
 ---
-
 
 
 ### 💻 Installation & Local Setup
@@ -116,3 +106,14 @@ python app.py
 
 Access the Hub:
 After starting the server, open http://127.0.0.1:5000 in your browser.
+
+---
+
+## 👥 Contributors
+
+| Name | Role |
+|------|------|
+| Tshepo | Lead Developer |
+| Leonard | UI/UX Designer |
+| Muziwenkosi | Data Analyst |
+
