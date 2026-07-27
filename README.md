@@ -96,5 +96,22 @@ Designed with a Security-by-Design Software Development Lifecycle (SSDLC) ideal 
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git](https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub.git)
-   cd edutrack-analytics-hub
+   git clone : https://github.com/Tshepo-Letsoalo/edutrack-analytics-hub
+   
+
+2. Create and activate a virtual environment
+
+python -m venv venv
+# On Windows:
+venv\Scripts\activate
+# On macOS/Linux:
+source venv/bin/activate
+
+3. Install dependencies:
+   pip install flask
+
+4. Run the application:
+   python app.py
+
+5. Open in browser:
+Navigate to http://127.0.0.1:5000 to access the hub.
