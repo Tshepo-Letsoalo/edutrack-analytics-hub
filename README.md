@@ -115,5 +115,5 @@ After starting the server, open http://127.0.0.1:5000 in your browser.
 |------|------|
 | Tshepo | Lead Developer |
 | Leonard | UI/UX Designer |
-| Muziwenkosi | Data Analyst |
+
 
