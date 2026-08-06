@@ -110,12 +110,11 @@ After starting the server, open http://127.0.0.1:5000 in your browser.
 ---
 
 
-## 👥 Contributors
+## 👥 Contributors & Project Team
 
-| Name     | Role               |
-|----------|--------------------|
-| Tshepo   | Lead Developer     |
-| Leonard  | UI/UX Designer     |
-| Tlotlisang | Outreach Coordinator |
-
+| Name | Role | Focus Area |
+| :--- | :--- | :--- |
+| **Tshepo** | Lead Developer | Core Architecture, System Logic & Integration |
+| **Leonard** | UI/UX Designer | Interface Layout, Design Systems & Product Styling |
+| **Tlotlisang** | Youth Advisor & Education Specialist | User Experience Evaluation, Outreach & Student Perspective |
 
