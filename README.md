@@ -7,8 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Production Ready](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
-A centralized, secure, multi-student web application designed to maintain records, automate academic grade tracking, monitor dynamic data metrics, and provide localized interactions across higher education institutions. Built with a focus on security-by-design principles, robust routing, and localized multi-language UI support for South African communities.
-
+A centralized, secure, multiple students' web application aimed at record keeping, automatic grading of academics, dynamic data metrics, and localized interactions within the higher education sector. The application will be developed using security by design approach, routing, and localization of different languages used in South Africa.
 ---
 
 ## 🌍 Visual Workflow & Features
