@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Completed](https://img.shields.io/badge/Status-Completed-success.svg)]()
 
-A single, safe web app for many students.  
+A single, safe Academic app for many students.  
 It is made for keeping records, grading school work automatically, showing data in simple charts, and helping with local use in higher education.  
 The app is built with security in mind, with routing, and support for different languages used in South Africa.  
 
