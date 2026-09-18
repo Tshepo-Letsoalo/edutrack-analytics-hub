@@ -1,4 +1,4 @@
-# EduTrack Analytics Hub 🎓
+# EduTrack Analytics Hub 
 
 > Centres for Academic Excellence 2026 | Challenge 3: Multi-Currency & Multi-Language Higher Education Portal
 
@@ -13,7 +13,7 @@ The app is built with security in mind, with routing, and support for different 
 
 ---
 
-## 🌍 Workflow & Features
+##  Workflow & Features
 
 ### 1. Header, Clock & Language Selector
 * Shows a live clock, date, theme switch, and a language selector for all 11 official South African languages plus SASL.
@@ -33,7 +33,7 @@ The app is built with security in mind, with routing, and support for different 
 
 ---
 
-## 📋 System Setup
+##  System Setup
 
 ### Multi-Language Dictionary
 The app maps school terms across South African languages:
@@ -49,7 +49,7 @@ The app maps school terms across South African languages:
 
 ---
 
-## 🚀 Features
+##  Features
 
 * Manage many student profiles, search by ID, and switch accounts.  
 * Automatic grade calculations to avoid mistakes.  
@@ -58,7 +58,7 @@ The app maps school terms across South African languages:
 
 ---
 
-## 🔒 Security
+##  Security
 
 Built with security in mind:
 * **Input Checks:** Stops unsafe data.  
@@ -67,7 +67,7 @@ Built with security in mind:
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Backend:** Python (Flask)  
 * **Frontend:** HTML5, CSS3  
@@ -75,7 +75,7 @@ Built with security in mind:
 
 ---
 
-## 🏁 Getting Started
+##  Getting Started
 
 ### Needs
 * Python 3.10+  
@@ -107,7 +107,7 @@ After starting the server, open http://127.0.0.1:5000 in your browser.
 ---
 
 
-## 👥 Contributors & Project Team
+##  Contributors & Project Team
 
 | Name | Role | Focus Area |
 | :--- | :--- | :--- |
