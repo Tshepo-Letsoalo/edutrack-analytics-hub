@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="brand_title">EduTrack Analytics Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --app-blue: #002d62;
+            --app-gold: #ffc72c;
+            --app-light-bg: #f4f6f9;
+            --app-dark-text: #1a202c;
+            --app-border: #cbd5e1;
+            --card-bg: #ffffff;
+            --table-header-bg: #f8fafc;
+            --table-row-hover: #f8fafc;
+            --subtext: #64748b;
+        }
+
+        [data-theme="dark"] {
+            --app-blue: #0f172a;
+            --app-gold: #f59e0b;
+            --app-light-bg: #090d16;
+            --app-dark-text: #f8fafc;
+            --app-border: #334155;
+            --card-bg: #1e293b;
+            --table-header-bg: #0f172a;
+            --table-row-hover: #273548;
+            --subtext: #94a3b8;
+        }
+
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--app-light-bg);
+            color: var(--app-dark-text);
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Top Brand Navigation Bar */
+        .brand-bar {
+            background-color: var(--app-blue);
+            color: #fff;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--app-gold);
+        }
+
+        .brand-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        .brand-link:hover {
+            opacity: 0.9;
+        }
+
+        .brand-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .role-indicator {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 13px;
+        }
+
+        /* Top Bar Widgets */
+        .top-bar-widgets {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .top-widget-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .top-widget-item svg {
+            color: var(--app-gold);
+            flex-shrink: 0;
+        }
+
+        .top-widget-divider {
+            width: 1px;
+            height: 14px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-gold {
+            background-color: var(--app-gold);
+            color: #000;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.2s;
+        }
+
+        .btn-gold:hover {
+            background-color: #e6b325;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px 40px 20px;
+        }
+
+        /* Hero Header Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--app-blue) 0%, #004080 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--app-border);
+        }
+
+        .hero-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .hero-section h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+        }
+
+        .hero-section p {
+            margin: 0;
+            color: #cbd5e1;
+            font-size: 15px;
+        }
+
+        /* Faculty Filter Tabs */
+        .faculty-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .faculty-btn {
+            padding: 10px 20px;
+            background: var(--card-bg);
+            color: var(--app-dark-text);
+            border: 1px solid var(--app-border);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+        }
+
+        .faculty-btn:hover, .faculty-btn.active {
+            background: var(--app-blue);
+            color: #fff;
+            border-color: var(--app-blue);
+        }
+
+        /* Search & Controls Card */
+        .controls-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--app-border);
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .controls-card form {
+            display: flex;
+            gap: 10px;
+            flex: 1;
+        }
+
+        input, select {
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--app-border);
+            background: var(--card-bg);
+            color: var(--app-dark-text);
+            font-size: 14px;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--app-blue);
+            box-shadow: 0 0 0 2px rgba(0, 45, 98, 0.1);
+        }
+
+        button.btn-primary {
+            padding: 10px 18px;
+            background: var(--app-blue);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        button.btn-primary:hover {
+            background: #001f40;
+        }
+
+        /* Student Profile Card */
+        .profile-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--app-border);
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .profile-info h3 {
+            margin: 0 0 6px 0;
+            color: var(--app-dark-text);
+            font-size: 20px;
+        }
+
+        .profile-info p {
+            margin: 0;
+            color: var(--subtext);
+            font-size: 14px;
+        }
+
+        .profile-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .status-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid #bae6fd;
+        }
+
+        .btn-download-transcript {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 4px rgba(22, 163, 74, 0.2);
+            transition: all 0.2s ease;
+            border: 1px solid #15803d;
+            cursor: pointer;
+        }
+
+        .btn-download-transcript:hover {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            box-shadow: 0 4px 8px rgba(22, 163, 74, 0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--app-border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .metric-card h3 {
+            margin: 0 0 10px 0;
+            color: var(--subtext);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-card .value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--app-dark-text);
+            margin: 0;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--app-border);
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .form-card h2 {
+            font-size: 16px;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--app-dark-text);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        button.btn-success {
+            padding: 10px 18px;
+            background: #16a34a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        button.btn-success:hover {
+            background: #15803d;
+        }
+
+        button.btn-danger {
+            padding: 6px 12px;
+            background: #fee2e2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        button.btn-danger:hover {
+            background: #dc2626;
+            color: #fff;
+        }
+
+        /* Data Table */
+        .table-container {
+            background: var(--card-bg);
+            border-radius: 8px;
+            border: 1px solid var(--app-border);
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 14px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--app-border);
+            font-size: 14px;
+            color: var(--app-dark-text);
+        }
+
+        th {
+            background: var(--table-header-bg);
+            color: var(--subtext);
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--table-row-hover);
+        }
+
+        .badge-pass {
+            background: #dcfce7;
+            color: #15803d;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .badge-fail {
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        /* Theme Toggle Switch */
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Brand Header Bar -->
+    <div class="brand-bar">
+        <a href="/" class="brand-link">
+            <h2 class="brand-title" data-i18n="brand_title">EduTrack Analytics Hub</h2>
+        </a>
+        <div class="role-indicator">
+            <!-- Dark Mode Toggle Button -->
+            <button onclick="toggleTheme()" class="theme-toggle" id="theme-toggle-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <span id="theme-label" data-i18n="theme_label">Dark Mode</span>
+            </button>
+
+            <!-- Language Dropdown -->
+            <div style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 12px; color: #cbd5e1;" data-i18n="lang_label">Language:</span>
+                <select id="language-select" onchange="switchLanguage(this.value)" style="padding: 4px 8px; font-size: 12px; border-radius: 4px; border: 1px solid #cbd5e1; background: var(--card-bg); color: var(--app-dark-text);">
+                    <option value="en">English</option>
+                    <option value="zu">isiZulu</option>
+                    <option value="xh">isiXhosa</option>
+                    <option value="af">Afrikaans</option>
+                    <option value="nso">Sepedi</option>
+                    <option value="tn">Setswana</option>
+                    <option value="st">Sesotho</option>
+                    <option value="ts">Xitsonga</option>
+                    <option value="ss">siSwati</option>
+                    <option value="ve">Tshivenda</option>
+                    <option value="nr">isiNdebele</option>
+                    <option value="sasl">SA Sign Language</option>
+                </select>
+            </div>
+
+            <!-- Time & Date Widgets -->
+            <div class="top-bar-widgets">
+                <div class="top-widget-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    <span id="live-clock">--:--:-- --</span>
+                </div>
+                <div class="top-widget-divider"></div>
+                <div class="top-widget-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span id="live-date">---, --- --, ----</span>
+                </div>
+            </div>
+
+            <span data-i18n="role_text">Role:</span> <strong>{{ role }}</strong>
+            <form action="/toggle-role" method="POST" style="margin:0;">
+                <button type="submit" class="btn-gold" data-i18n="switch_role">Switch Role</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Section Link / Homepage Trigger -->
+        <div class="hero-section">
+            <a href="/" class="hero-link">
+                <h1 data-i18n="hero_title">EduTrack Analytics Hub</h1>
+                <p data-i18n="hero_subtitle">Security-by-Design Higher Education Portal</p>
+            </a>
+        </div>
+
+        <!-- Faculty Navigation -->
+        <div class="faculty-nav">
+            <a href="/?faculty=All" class="faculty-btn {% if selected_faculty == 'All' %}active{% endif %}" data-i18n="fac_all">All Faculties</a>
+            <a href="/?faculty=Computer Science" class="faculty-btn {% if selected_faculty == 'Computer Science' %}active{% endif %}" data-i18n="fac_cs">Computer Science</a>
+            <a href="/?faculty=Information Science" class="faculty-btn {% if selected_faculty == 'Information Science' %}active{% endif %}" data-i18n="fac_is">Information Science</a>
+            <a href="/?faculty=Multimedia" class="faculty-btn {% if selected_faculty == 'Multimedia' %}active{% endif %}" data-i18n="fac_mm">Multimedia</a>
+            <a href="/?faculty=Publishing" class="faculty-btn {% if selected_faculty == 'Publishing' %}active{% endif %}" data-i18n="fac_pub">Publishing</a>
+        </div>
+
+        <!-- Search & Student Switcher -->
+        <div class="controls-card">
+            <form action="/" method="GET">
+                <input type="text" name="search" data-i18n-placeholder="search_placeholder" placeholder="Search Student ID (e.g., EDU-2026-2201)" style="flex: 1;" required>
+                <button type="submit" class="btn-primary" data-i18n="search_btn">Search Record</button>
+            </form>
+            <form action="/switch" method="POST" style="display: flex; gap: 10px; margin: 0;">
+                <select name="student_id" onchange="this.form.submit()">
+                    {% for sid, data in filtered_students.items() %}
+                        <option value="{{ sid }}" {% if sid == learner.student_id %}selected{% endif %}>{{ data.name }} ({{ sid }})</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <!-- Active Student Profile Card -->
+        <div class="profile-card">
+            <div class="profile-info">
+                <h3>{{ learner.name }}</h3>
+                <p><span data-i18n="lbl_studentid">Student ID</span>: <strong>{{ learner.student_id }}</strong> | <span data-i18n="lbl_faculty">Faculty</span>: <strong>{{ learner.faculty }}</strong> | <span data-i18n="lbl_program">Program</span>: <strong>{{ learner.program }}</strong></p>
+            </div>
+            <div class="profile-actions">
+                <span class="status-badge" data-i18n="active_profile">Active Academic Profile</span>
+                <button onclick="downloadLocalizedTranscript('{{ learner.student_id }}')" class="btn-download-transcript">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    <span data-i18n="export_pdf">Download PDF Transcript</span>
+                </button>
+            </div>
+        </div>
+
+        {% if role == 'Registrar' %}
+        <!-- Register New Learner Form -->
+        <div class="form-card" style="border: 2px dashed var(--app-border);">
+            <h2 data-i18n="reg_learner_title">Register New Learner Profile (Registrar Authorized)</h2>
+            <form action="/add-student" method="POST" class="form-grid">
+                <input type="text" name="name" data-i18n-placeholder="ph_fullname" placeholder="Full Name" required>
+                <input type="text" name="student_id" data-i18n-placeholder="ph_studentid" placeholder="Student ID (e.g. EDU-2026-9999)" required>
+                <select name="faculty" required>
+                    <option value="" disabled selected data-i18n="opt_select_faculty">Select Faculty</option>
+                    <option value="Computer Science" data-i18n="fac_cs">Computer Science</option>
+                    <option value="Information Science" data-i18n="fac_is">Information Science</option>
+                    <option value="Multimedia" data-i18n="fac_mm">Multimedia</option>
+                    <option value="Publishing" data-i18n="fac_pub">Publishing</option>
+                </select>
+                <input type="text" name="program" data-i18n-placeholder="ph_program" placeholder="Program / Degree" required>
+                <button type="submit" class="btn-success" data-i18n="btn_add_student">Add Student</button>
+            </form>
+        </div>
+        {% endif %}
+
+        <!-- Metrics Overview Grid -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <h3 data-i18n="metric_avg">Academic Average</h3>
+                <p class="value">{{ cumulative_gpa }}%</p>
+            </div>
+            <div class="metric-card">
+                <h3 data-i18n="metric_credits">Total Credits</h3>
+                <p class="value">{{ total_credits }} / {{ max_degree_credits }}</p>
+            </div>
+        </div>
+
+        {% if role == 'Registrar' %}
+        <!-- Add Verified Module Form -->
+        <div class="form-card">
+            <h2 data-i18n="add_mod_title">Add Verified Module Record for {{ learner.name }}</h2>
+            <form action="/add" method="POST" class="form-grid">
+                <input type="text" name="code" data-i18n-placeholder="ph_code" placeholder="Code (e.g., MAT114)" required>
+                <input type="text" name="name" data-i18n-placeholder="ph_modname" placeholder="Module Name" required>
+                <input type="number" name="credits" placeholder="Credits (12)" value="12" required>
+                <input type="number" step="0.1" name="score" data-i18n-placeholder="ph_score" placeholder="Score %" required>
+                <button type="submit" class="btn-primary" data-i18n="btn_add_module">Add Module</button>
+            </form>
+        </div>
+        {% endif %}
+
+        <!-- Module Table Section -->
+        <h2 style="font-size: 18px; color: var(--app-dark-text); margin-bottom: 12px;" data-i18n="table_header">Module Performance Overview</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-i18n="th_code">Module Code</th>
+                        <th data-i18n="th_name">Module Name</th>
+                        <th data-i18n="th_credits">Credits</th>
+                        <th data-i18n="th_score">Score</th>
+                        <th data-i18n="th_grade">Grade</th>
+                        <th data-i18n="th_status">Status</th>
+                        {% if role == 'Registrar' %}<th data-i18n="th_actions">Actions</th>{% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if modules %}
+                        {% for module in modules %}
+                        <tr>
+                            <td><strong>{{ module.code }}</strong></td>
+                            <td>{{ module.name }}</td>
+                            <td>{{ module.credits }}</td>
+                            <td>{{ module.score }}%</td>
+                            <td><strong>{{ module.grade }}</strong></td>
+                            <td>
+                                {% if module.status == 'PASSED' %}
+                                    <span class="badge-pass" data-i18n="status_passed">PASSED</span>
+                                {% else %}
+                                    <span class="badge-fail" data-i18n="status_failed">FAILED</span>
+                                {% endif %}
+                            </td>
+                            {% if role == 'Registrar' %}
+                            <td>
+                                <form action="/remove/{{ loop.index0 }}" method="POST" style="margin: 0;">
+                                    <button type="submit" class="btn-danger" data-i18n="btn_remove">Remove</button>
+                                </form>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="7" style="text-align: center; color: var(--subtext); padding: 30px;" data-i18n="no_modules">No module records found for this student.</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- JavaScript Engine -->
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        }
+
+        function updateThemeButton(theme) {
+            const label = document.getElementById('theme-label');
+            const langSelect = document.getElementById('language-select');
+            const dict = i18nDictionary[langSelect ? langSelect.value : 'en'] || i18nDictionary['en'];
+            if (theme === 'dark') {
+                label.innerText = dict['light_mode'] || 'Light Mode';
+            } else {
+                label.innerText = dict['dark_mode'] || 'Dark Mode';
+            }
+        }
+
+        function updateLiveDateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+            const clockEl = document.getElementById('live-clock');
+            if (clockEl) clockEl.innerText = timeString;
+
+            const dateString = now.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+            const dateEl = document.getElementById('live-date');
+            if (dateEl) dateEl.innerText = dateString;
+        }
+
+        // Initialize clock and theme on load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeButton(savedTheme);
+            
+            const initialLang = document.getElementById('language-select').value;
+            switchLanguage(initialLang);
+
+            updateLiveDateTime();
+            setInterval(updateLiveDateTime, 1000);
+        });
+
+        const i18nDictionary = {
+            en: {
+                brand_title: "EduTrack Analytics Hub",
+                lang_label: "Language:",
+                role_text: "Role:",
+                switch_role: "Switch Role",
+                theme_label: "Dark Mode",
+                dark_mode: "Dark Mode",
+                light_mode: "Light Mode",
+                hero_title: "EduTrack Analytics Hub",
+                hero_subtitle: "Security-by-Design Higher Education Portal",
+                fac_all: "All Faculties",
+                fac_cs: "Computer Science",
+                fac_is: "Information Science",
+                fac_mm: "Multimedia",
+                fac_pub: "Publishing",
+                search_placeholder: "Search Student ID (e.g., EDU-2026-2201)",
+                search_btn: "Search Record",
+                lbl_studentid: "Student ID",
+                lbl_faculty: "Faculty",
+                lbl_program: "Program",
+                active_profile: "Active Academic Profile",
+                export_pdf: "Download PDF Transcript",
+                reg_learner_title: "Register New Learner Profile (Registrar Authorized)",
+                ph_fullname: "Full Name",
+                ph_studentid: "Student ID (e.g. EDU-2026-9999)",
+                opt_select_faculty: "Select Faculty",
+                ph_program: "Program / Degree",
+                btn_add_student: "Add Student",
+                metric_avg: "Academic Average",
+                metric_credits: "Total Credits",
+                add_mod_title: "Add Verified Module Record",
+                ph_code: "Code (e.g., MAT114)",
+                ph_modname: "Module Name",
+                ph_score: "Score %",
+                btn_add_module: "Add Module",
+                table_header: "Module Performance Overview",
+                th_code: "Module Code",
+                th_name: "Module Name",
+                th_credits: "Credits",
+                th_score: "Score",
+                th_grade: "Grade",
+                th_status: "Status",
+                th_actions: "Actions",
+                status_passed: "PASSED",
+                status_failed: "FAILED",
+                btn_remove: "Remove",
+                no_modules: "No module records found for this student."
+            },
+            zu: {
+                brand_title: "Isikhungo Sase-EduTrack",
+                lang_label: "Ulimi:",
+                role_text: "Indima:",
+                switch_role: "Shintsha Indima",
+                theme_label: "Imodi Emnyama",
+                dark_mode: "Imodi Emnyama",
+                light_mode: "Imodi Ekhanyayo",
+                hero_title: "Isikhungo Sase-EduTrack",
+                hero_subtitle: "Ingosi Yemfundo Ephakeme",
+                fac_all: "Yonke Imikhakha",
+                fac_cs: "Isayensi Yekhompyutha",
+                fac_is: "Isayensi Yolwazi",
+                fac_mm: "I-Multimedia",
+                fac_pub: "Ukushicilela",
+                search_placeholder: "Sesha Inombolo Yomfundi (isb., EDU-2026-2201)",
+                search_btn: "Sesha Irekhodi",
+                lbl_studentid: "Inombolo Yomfundi",
+                lbl_faculty: "Umkhakha",
+                lbl_program: "Uhlelo",
+                active_profile: "Iphrofayela Yomfundi Esebenzayo",
+                export_pdf: "Landa Umbhalo Weziqu (PDF)",
+                reg_learner_title: "Bhalisa Umfundi Omusha",
+                ph_fullname: "Igama Eliphelele",
+                ph_studentid: "Inombolo Yomfundi",
+                opt_select_faculty: "Khetha Umkhakha",
+                ph_program: "Uhlelo / Iziqu",
+                btn_add_student: "Engeza Umfundi",
+                metric_avg: "Isilinganiso Sezemfundo",
+                metric_credits: "Amakhredithi Asegugu",
+                add_mod_title: "Engeza Irekhodi Lemojuli",
+                ph_code: "Ikhodi (isb., MAT114)",
+                ph_modname: "Igama Lemojuli",
+                ph_score: "Amaphuzu %",
+                btn_add_module: "Engeza Mojuli",
+                table_header: "Ukubuyekezwa Kwemojuli",
+                th_code: "Ikhodi Yemojuli",
+                th_name: "Igama Lemojuli",
+                th_credits: "Amakhredithi",
+                th_score: "Amaphuzu",
+                th_grade: "Ibanga",
+                th_status: "Isimo",
+                th_actions: "Izenzo",
+                status_passed: "PASSED",
+                status_failed: "FAILED",
+                btn_remove: "Susa",
+                no_modules: "Ayikho imojuli etholakele kulo mfundi."
+            },
+            xh: {
+                brand_title: "Isixhobo Sase-EduTrack",
+                lang_label: "Ulwimi:",
+                role_text: "Indima:",
+                switch_role: "Tshintsha Indima",
+                theme_label: "Imowudi Emnyama",
+                dark_mode: "Imowudi Emnyama",
+                light_mode: "Imowudi Ekhanyayo",
+                hero_title: "Isixhobo Sase-EduTrack",
+                hero_subtitle: "I Portal Yemfundo Ephakamileyo",
+                fac_all: "Onke Amasebe",
+                fac_cs: "I Sayensi Yekhompyutha",
+                fac_is: "I Sayensi Yolwazi",
+                fac_mm: "I-Multimedia",
+                fac_pub: "Ukupapasha",
+                search_placeholder: "Khangela Inombolo Yomfundi",
+                search_btn: "Khangela",
+                lbl_studentid: "Inombolo Yomfundi",
+                lbl_faculty: "ISebe",
+                lbl_program: "Inkqubo",
+                active_profile: "Iprofayile Esebenzayo",
+                export_pdf: "Khuphela Ingxelo (PDF)",
+                reg_learner_title: "Bhalisa Umfundi Omtsha",
+                ph_fullname: "Igama Lo lonke",
+                ph_studentid: "Inombolo Yomfundi",
+                opt_select_faculty: "Khetha Isebe",
+                ph_program: "Inkqubo / Isidanga",
+                btn_add_student: "Faka Umfundi",
+                metric_avg: "Umyinge Wezemfundo",
+                metric_credits: "Amakhredithi",
+                add_mod_title: "Faka Imodyuli",
+                ph_code: "Ikhodi",
+                ph_modname: "Igama Lemodyuli",
+                ph_score: "Amanqaku %",
+                btn_add_module: "Faka Imodyuli",
+                table_header: "Ukuqwalaselwa Kwemodyuli",
+                th_code: "Ikhodi Yemodyuli",
+                th_name: "Igama Lemodyuli",
+                th_credits: "Amakhredithi",
+                th_score: "Amanqaku",
+                th_grade: "Ibanga",
+                th_status: "Isimo",
+                th_actions: "Izenzo",
+                status_passed: "PASSED",
+                status_failed: "FAILED",
+                btn_remove: "Susa",
+                no_modules: "Akukho modyuli zifunyenweyo."
+            },
+            af: {
+                brand_title: "EduTrack Analise Hub",
+                lang_label: "Taal:",
+                role_text: "Rol:",
+                switch_role: "Verander Rol",
+                theme_label: "Donker Modus",
+                dark_mode: "Donker Modus",
+                light_mode: "Ligte Modus",
+                hero_title: "EduTrack Analise Hub",
+                hero_subtitle: "Sekuriteit-deur-Ontwerp Hoër Onderwys Portaal",
+                fac_all: "Alle Fakulteite",
+                fac_cs: "Rekenaarwetenskap",
+                fac_is: "Inligtingwetenskap",
+                fac_mm: "Multimedia",
+                fac_pub: "Uitgewery",
+                search_placeholder: "Soek Student ID (bv., EDU-2026-2201)",
+                search_btn: "Soek Rekord",
+                lbl_studentid: "Student ID",
+                lbl_faculty: "Fakulteit",
+                lbl_program: "Program",
+                active_profile: "Aktiewe Akademiese Profiel",
+                export_pdf: "Laai PDF-Transkripsie Af",
+                reg_learner_title: "Registreer Nuwe Student Profiel",
+                ph_fullname: "Volle Naam",
+                ph_studentid: "Student ID",
+                opt_select_faculty: "Kies Fakulteit",
+                ph_program: "Program / Graad",
+                btn_add_student: "Voeg Student By",
+                metric_avg: "Akademiese Gemiddeld",
+                metric_credits: "Totale Krediete",
+                add_mod_title: "Voeg Geverifieerde Module By",
+                ph_code: "Kode (bv., MAT114)",
+                ph_modname: "Modulenaam",
+                ph_score: "Punt %",
+                btn_add_module: "Voeg Module By",
+                table_header: "Module Prestasie Oorsig",
+                th_code: "Modulekode",
+                th_name: "Modulenaam",
+                th_credits: "Krediete",
+                th_score: "Punt",
+                th_grade: "Graad",
+                th_status: "Status",
+                th_actions: "Aksies",
+                status_passed: "GESLAAG",
+                status_failed: "GEFAAL",
+                btn_remove: "Verwyder",
+                no_modules: "Geen modulerekords gevind vir hierdie student nie."
+            },
+            nso: {
+                brand_title: "Hub ya Sekaseka ya EduTrack",
+                lang_label: "Polelo:",
+                role_text: "Seabe:",
+                switch_role: "Fetola Seabe",
+                theme_label: "Mokgwa wa Leswiswi",
+                dark_mode: "Mokgwa wa Leswiswi",
+                light_mode: "Mokgwa wa Leseli",
+                hero_title: "Hub ya Sekaseka ya EduTrack",
+                hero_subtitle: "Loro la Thuto ya Godimo ya Tshireletso",
+                fac_all: "Dikgaoro ka Moka",
+                fac_cs: "Saense ya Dikhomphutha",
+                fac_is: "Saense ya Tshedimošo",
+                fac_mm: "Multimedia",
+                fac_pub: "Gatiso",
+                search_placeholder: "Nyaka Nomoro ya Moithuti (mol., EDU-2026-2201)",
+                search_btn: "Nyaka Rekoto",
+                lbl_studentid: "Nomoro ya Moithuti",
+                lbl_faculty: "Kgoro",
+                lbl_program: "Lenaneo",
+                active_profile: "Porofaelo ya Thuto e Šomago",
+                export_pdf: "Laolla Setifikate sa PDF",
+                reg_learner_title: "Ingwadishe Moithuti yo Mofsa",
+                ph_fullname: "Leina ka Botlalo",
+                ph_studentid: "Nomoro ya Moithuti",
+                opt_select_faculty: "Kgetha Kgoro",
+                ph_program: "Lenaneo / Dikrii",
+                btn_add_student: "Lokela Moithuti",
+                metric_avg: "Palogare ya Thuto",
+                metric_credits: "Dikredithi ka Moka",
+                add_mod_title: "Lokela Rekoto ya Mojulu",
+                ph_code: "Khoutu (mol., MAT114)",
+                ph_modname: "Leina la Mojulu",
+                ph_score: "Dipalo %",
+                btn_add_module: "Lokela Mojulu",
+                table_header: "Tekolo ya Mojulu",
+                th_code: "Khoutu ya Mojulu",
+                th_name: "Leina la Mojulu",
+                th_credits: "Dikredithi",
+                th_score: "Dipalo",
+                th_grade: "Sehlopha",
+                th_status: "Boemo",
+                th_actions: "Ditiro",
+                status_passed: "FETILE",
+                status_failed: "FOLOTSE",
+                btn_remove: "Tlosa",
+                no_modules: "Ga go dipono tša mojulu tše di hweditšwego moithuting yo."
+            },
+            tn: {
+                brand_title: "EduTrack Analytics Hub",
+                lang_label: "Puō:",
+                role_text: "Seabe:",
+                switch_role: "Fetola Seabe",
+                theme_label: "Mokgwa wa Lefifi",
+                dark_mode: "Mokgwa wa Lefifi",
+                light_mode: "Mokgwa wa Lesedi",
+                hero_title: "EduTrack Analytics Hub",
+                hero_subtitle: "Poroto ya Thuto e Phahameng ya Tshireletso",
+                fac_all: "Mafapha Otlhe",
+                fac_cs: "Saense ya Dikhomputara",
+                fac_is: "Saense ya Tshedimosetso",
+                fac_mm: "Multimedia",
+                fac_pub: "Kgatiso",
+                search_placeholder: "Batla Nomoro ya Moithuti (sek., EDU-2026-2201)",
+                search_btn: "Batla Rekoto",
+                lbl_studentid: "Nomoro ya Moithuti",
+                lbl_faculty: "Lefapha",
+                lbl_program: "Lenaneo",
+                active_profile: "Porofaelo ya Thuto e Diragatsang",
+                export_pdf: "Khoasolla Transisoriti ya PDF",
+                reg_learner_title: "Kwadisa Moithuti yo Mosha",
+                ph_fullname: "Leina le Leletseng",
+                ph_studentid: "Nomoro ya Moithuti",
+                opt_select_faculty: "Tlhopha Lefapha",
+                ph_program: "Lenaneo / Dikrii",
+                btn_add_student: "Tsenya Moithuti",
+                metric_avg: "Palogare ya Thuto",
+                metric_credits: "Dikrediti Tsotlhe",
+                add_mod_title: "Tsenya Rekoto ya Mojule",
+                ph_code: "Khoutu (sek., MAT114)",
+                ph_modname: "Leina la Mojule",
+                ph_score: "Maraga %",
+                btn_add_module: "Tsenya Mojule",
+                table_header: "Tlhatlhobo ya Mojule",
+                th_code: "Khoutu ya Mojule",
+                th_name: "Leina la Mojule",
+                th_credits: "Dikrediti",
+                th_score: "Maraga",
+                th_grade: "Kereiti",
+                th_status: "Boemo",
+                th_actions: "Ditiro",
+                status_passed: "FITHLELETSWE",
+                status_failed: "RETLEGELA",
+                btn_remove: "Tlosa",
+                no_modules: "Ga go na dipego tsa mojule tse di bonweng mo moithuting yono."
+            },
+            st: {
+                brand_title: "Hub ya Sekaseka ya EduTrack",
+                lang_label: "Puo:",
+                role_text: "Karolo:",
+                switch_role: "Fetola Karolo",
+                theme_label: "Mokgwa o Lefifi",
+                dark_mode: "Mokgwa o Lefifi",
+                light_mode: "Mokgwa o Leseli",
+                hero_title: "Hub ya Sekaseka ya EduTrack",
+                hero_subtitle: "Poroto ya Thuto e Phahameng",
+                fac_all: "Makala Ohle",
+                fac_cs: "Saense ya Dikhomphutha",
+                fac_is: "Saense ya Tlhahisoleseding",
+                fac_mm: "Multimedia",
+                fac_pub: "Kgatiso",
+                search_placeholder: "Batla Nomoro ya Moithuti",
+                search_btn: "Batla Rekoto",
+                lbl_studentid: "Nomoro ya Moithuti",
+                lbl_faculty: "Lefapha",
+                lbl_program: "Lenaneo",
+                active_profile: "Porofaelo ya Thuto e Sebetsang",
+                export_pdf: "Khoasolla Tokomane ya PDF",
+                reg_learner_title: "Ingodise Moithuti e Mocha",
+                ph_fullname: "Lebitso le Feletseng",
+                ph_studentid: "Nomoro ya Moithuti",
+                opt_select_faculty: "Khetha Lefapha",
+                ph_program: "Lenaneo / Degree",
+                btn_add_student: "Kenya Moithuti",
+                metric_avg: "Palogare ya Thuto",
+                metric_credits: "Dikrediti ka Moka",
+                add_mod_title: "Kenya Rekoto ya Mojule",
+                ph_code: "Khoutu (mol., MAT114)",
+                ph_modname: "Lebitso la Mojule",
+                ph_score: "Likarolo %",
+                btn_add_module: "Kenya Mojule",
+                table_header: "Tlhahlobo ya Mojule",
+                th_code: "Khoutu ya Mojule",
+                th_name: "Lebitso la Mojule",
+                th_credits: "Dikrediti",
+                th_score: "Likarolo",
+                th_grade: "Sehlopha",
+                th_status: "Boemo",
+                th_actions: "Diketso",
+                status_passed: "FETILE",
+                status_failed: "HLOLEHILE",
+                btn_remove: "Tlosa",
+                no_modules: "Ha ho dipego tsa mojule tse fumanehileng."
+            },
+            ts: {
+                brand_title: "EduTrack Analytics Hub",
+                lang_label: "Ririmi:",
+                role_text: "Xikhiyana:",
+                switch_role: "Cinja Xikhiyana",
+                theme_label: "Muxaka wa Mune",
+                dark_mode: "Muxaka wa Mune",
+                light_mode: "Muxaka wo Vonika",
+                hero_title: "EduTrack Analytics Hub",
+                hero_subtitle: "Porta ya Dyondzo ya Le Henhla",
+                fac_all: "Matiko Hinkwato",
+                fac_cs: "Sayansi ya Khamphyuta",
+                fac_is: "Sayansi ya Vuxokoxoko",
+                fac_mm: "Multimedia",
+                fac_pub: "Khatiselo",
+                search_placeholder: "Kongotela Nomboro ya Mudyondzi",
+                search_btn: "Kongotela",
+                lbl_studentid: "Nomboro ya Mudyondzi",
+                lbl_faculty: "Ndzawulo",
+                lbl_program: "Porogramu",
+                active_profile: "Porofili leyi Tirhaka",
+                export_pdf: "Kopa Phepeni ya PDF",
+                reg_learner_title: "Tsala Mudyondzi Luntfu",
+                ph_fullname: "Vito Hinkwaro",
+                ph_studentid: "Nomboro ya Mudyondzi",
+                opt_select_faculty: "Hlawula Ndzawulo",
+                ph_program: "Porogramu",
+                btn_add_student: "Engetela Mudyondzi",
+                metric_avg: "Avireji ya Dyondzo",
+                metric_credits: "Kurediti Hinkwato",
+                add_mod_title: "Engetela Modjulu",
+                ph_code: "Khodi",
+                ph_modname: "Vito ra Modjulu",
+                ph_score: "Ntsengo %",
+                btn_add_module: "Engetela Modjulu",
+                table_header: "Nkatsakanyo wa Modjulu",
+                th_code: "Khodi ya Modjulu",
+                th_name: "Vito ra Modjulu",
+                th_credits: "Kurediti",
+                th_score: "Ntsengo",
+                th_grade: "Giredi",
+                th_status: "Xiyimo",
+                th_actions: "Mintirho",
+                status_passed: "PFUMELEDZEWI",
+                status_failed: "TSANDZEKILE",
+                btn_remove: "Susa",
+                no_modules: "Ku hava swirekhodi swa modjulu."
+            },
+            ss: {
+                brand_title: "EduTrack Analytics Hub",
+                lang_label: "Lulwimi:",
+                role_text: "Indima:",
+                switch_role: "Shintsha Indima",
+                theme_label: "Imodi Lemnyama",
+                dark_mode: "Imodi Lemnyama",
+                light_mode: "Imodi Lesisingata",
+                hero_title: "EduTrack Analytics Hub",
+                hero_subtitle: "Iphothali Yemfundvo Lephakeme",
+                fac_all: "Temikhakha Tonkhe",
+                fac_cs: "Sayensi Yetinhloco",
+                fac_is: "Sayensi Yelwati",
+                fac_mm: "Multimedia",
+                fac_pub: "Kushicilela",
+                search_placeholder: "Sesha Inombolo Yemfundzi",
+                search_btn: "Sesha",
+                lbl_studentid: "Inombolo Yemfundzi",
+                lbl_faculty: "Temikhakha",
+                lbl_program: "Luhlelo",
+                active_profile: "Iphrofayela Lesebentako",
+                export_pdf: "Landza Umbhalo we-PDF",
+                reg_learner_title: "Bhalisa Umfundzi Lomusha",
+                ph_fullname: "Ligama Leliphelele",
+                ph_studentid: "Inombolo Yemfundzi",
+                opt_select_faculty: "Khetha Temikhakha",
+                ph_program: "Luhlelo",
+                btn_add_student: "Engetela Umfundzi",
+                metric_avg: "Silinganiso Semfundvo",
+                metric_credits: "Lamakhredithi",
+                add_mod_title: "Engetela Imodjuli",
+                ph_code: "Ikhodi",
+                ph_modname: "Ligama Lemodjuli",
+                ph_score: "Amaphoyinti %",
+                btn_add_module: "Engetela Imodjuli",
+                table_header: "Kuhlolwa Kwemodjuli",
+                th_code: "Ikhodi Yemodjuli",
+                th_name: "Ligama Lemodjuli",
+                th_credits: "Lamakhredithi",
+                th_score: "Amaphoyinti",
+                th_grade: "Libanga",
+                th_status: "Simo",
+                th_actions: "Tentamo",
+                status_passed: "Dlulile",
+                status_failed: "Hlulekile",
+                btn_remove: "Susa",
+                no_modules: "Kute amarekhodi emodjuli."
+            },
+            ve: {
+                brand_title: "EduTrack Analytics Hub",
+                lang_label: "Luambo:",
+                role_text: "Tshiteḓa:",
+                switch_role: "Shandukisa Tshiteḓa",
+                theme_label: "Mairo Maṋ̀ifha",
+                dark_mode: "Mairo Maṋ̀ifha",
+                light_mode: "Mairo Matete",
+                hero_title: "EduTrack Analytics Hub",
+                hero_subtitle: "Khothe ya Pfunzo ya Nṱha",
+                fac_all: "Khafula Yothe",
+                fac_cs: "Sainisi ya Khompyuta",
+                fac_is: "Sainisi ya Mivhigo",
+                fac_mm: "Multimedia",
+                fac_pub: "Mbuyelo",
+                search_placeholder: "Nyadisa Nomboro ya Mufunzi",
+                search_btn: "Nyadisa",
+                lbl_studentid: "Nomboro ya Mufunzi",
+                lbl_faculty: "Khafula",
+                lbl_program: "Porogramu",
+                active_profile: "Porofaelo ya u Shuma",
+                export_pdf: "Kopa PDF ya Tsheledo",
+                reg_learner_title: "Ṅwalisa Mufunzi Muswa",
+                ph_fullname: "Dzina ḽothe",
+                ph_studentid: "Nomboro ya Mufunzi",
+                opt_select_faculty: "Nangani Khafula",
+                ph_program: "Porogramu",
+                btn_add_student: "Engedza Mufunzi",
+                metric_avg: "Avhareji ya Pfunzo",
+                metric_credits: "Khuredithi",
+                add_mod_title: "Engedza Modjulu",
+                ph_code: "Khoutu",
+                ph_modname: "Dzina la Modjulu",
+                ph_score: "Tshikoro %",
+                btn_add_module: "Engedza Modjulu",
+                table_header: "Muvhalelano wa Modjulu",
+                th_code: "Khoutu ya Modjulu",
+                th_name: "Dzina la Modjulu",
+                th_credits: "Khuredithi",
+                th_score: "Tshikoro",
+                th_grade: "Gireithi",
+                th_status: "Vhuimo",
+                th_actions: "Misebenzi",
+                status_passed: "FHIRELE",
+                status_failed: "REKHISI",
+                btn_remove: "Bvisa",
+                no_modules: "A hu na zwine zwa wanala."
+            },
+            nr: {
+                brand_title: "EduTrack Analytics Hub",
+                lang_label: "Ulimi:",
+                role_text: "Indima:",
+                switch_role: "Tjintsha Indima",
+                theme_label: "Isimo Esimnyama",
+                dark_mode: "Isimo Esimnyama",
+                light_mode: "Isimo Esikhanyako",
+                hero_title: "EduTrack Analytics Hub",
+                hero_subtitle: "Isango Lemfundo Ephezulu",
+                fac_all: "Imikhakha Yoke",
+                fac_cs: "Isayensi Yekhompyutha",
+                fac_is: "Isayensi Yolwazi",
+                fac_mm: "Multimedia",
+                fac_pub: "Ukushicilela",
+                search_placeholder: "Funa Inombolo Yomfundi",
+                search_btn: "Funa",
+                lbl_studentid: "Inombolo Yomfundi",
+                lbl_faculty: "Umkhakha",
+                lbl_program: "Uhlelo",
+                active_profile: "Iphrofayili Esebenzako",
+                export_pdf: "Khipha I-PDF",
+                reg_learner_title: "Bhalisa Umfundi Omutsha",
+                ph_fullname: "Igama Ephelele",
+                ph_studentid: "Inombolo Yomfundi",
+                opt_select_faculty: "Khetha Umkhakha",
+                ph_program: "Uhlelo",
+                btn_add_student: "Engeza Umfundi",
+                metric_avg: "Isilinganiso Semfundo",
+                metric_credits: "Amakhredithi",
+                add_mod_title: "Engeza Imodjuli",
+                ph_code: "Ikhodi",
+                ph_modname: "Igama Lemodjuli",
+                ph_score: "Amaphuzu %",
+                btn_add_module: "Engeza Imodjuli",
+                table_header: "Ukubuyekezwa Kwemodjuli",
+                th_code: "Ikhodi Yemodjuli",
+                th_name: "Igama Lemodjuli",
+                th_credits: "Amakhredithi",
+                th_score: "Amaphuzu",
+                th_grade: "Ibanga",
+                th_status: "Isimo",
+                th_actions: "Izenzo",
+                status_passed: "DEDILE",
+                status_failed: "WEHLULEKILE",
+                btn_remove: "Susa",
+                no_modules: "Ayikho imodjuli etholakele."
+            },
+            sasl: {
+                brand_title: "EduTrack Analytics Hub (SASL)",
+                lang_label: "Sign Language:",
+                role_text: "Role:",
+                switch_role: "Switch Role",
+                theme_label: "Dark Mode",
+                dark_mode: "Dark Mode",
+                light_mode: "Light Mode",
+                hero_title: "EduTrack Analytics Hub",
+                hero_subtitle: "Visual Accessibility Portal",
+                fac_all: "All Faculties",
+                fac_cs: "Computer Science",
+                fac_is: "Information Science",
+                fac_mm: "Multimedia",
+                fac_pub: "Publishing",
+                search_placeholder: "Search Student ID",
+                search_btn: "Search",
+                lbl_studentid: "Student ID",
+                lbl_faculty: "Faculty",
+                lbl_program: "Program",
+                active_profile: "Active Profile",
+                export_pdf: "Download PDF",
+                reg_learner_title: "Register Student",
+                ph_fullname: "Full Name",
+                ph_studentid: "Student ID",
+                opt_select_faculty: "Select Faculty",
+                ph_program: "Program",
+                btn_add_student: "Add Student",
+                metric_avg: "Average",
+                metric_credits: "Credits",
+                add_mod_title: "Add Module",
+                ph_code: "Code",
+                ph_modname: "Module Name",
+                ph_score: "Score %",
+                btn_add_module: "Add Module",
+                table_header: "Module Overview",
+                th_code: "Code",
+                th_name: "Name",
+                th_credits: "Credits",
+                th_score: "Score",
+                th_grade: "Grade",
+                th_status: "Status",
+                th_actions: "Actions",
+                status_passed: "PASSED",
+                status_failed: "FAILED",
+                btn_remove: "Remove",
+                no_modules: "No records found."
+            }
+        };
+
+        function switchLanguage(lang) {
+            const dict = i18nDictionary[lang] || i18nDictionary['en'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key]) {
+                    el.placeholder = dict[key];
+                }
+            });
+            updateThemeButton(document.documentElement.getAttribute('data-theme') || 'light');
+        }
+
+        function downloadLocalizedTranscript(studentId) {
+            const selectedLang = document.getElementById('language-select').value;
+            window.location.href = `/export-transcript/${studentId}?lang=${selectedLang}`;
+        }
+    </script>
+</body>
+</html>
